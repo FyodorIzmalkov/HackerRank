@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="buttonsGrid.css" type="text/css">
+        <meta charset="utf-8">
+        <title>Buttons Grid</title>
+    </head>
+    <body>
+        <div id="btns" class="buttonContainer">
+            <button id="btn1" class="buttonClass">1</button>
+            <button id="btn2" class="buttonClass">2</button>
+            <button id="btn3" class="buttonClass">3</button>
+            <button id="btn4" class="buttonClass">4</button>
+            <button id="btn5" class="buttonClass" onclick="rotate()">5</button>
+            <button id="btn6" class="buttonClass">6</button>
+            <button id="btn7" class="buttonClass">7</button>
+            <button id="btn8" class="buttonClass">8</button>
+            <button id="btn9" class="buttonClass">9</button>
+        </div>
+        <script>
+            function rotate() {
+                var tmpBtn1 = getElementHTML("btn1");
+                setElementHTML("btn1", getElementHTML("btn4"));
+                setElementHTML("btn4", getElementHTML("btn7"));
+                setElementHTML("btn7", getElementHTML("btn8"));
+                setElementHTML("btn8", getElementHTML("btn9"));
+                setElementHTML("btn9", getElementHTML("btn6"));
+                setElementHTML("btn6", getElementHTML("btn3"));
+                setElementHTML("btn3", getElementHTML("btn2"));
+                setElementHTML("btn2", tmpBtn1);
+            };
+            function getElementHTML(elemName){
+                return document.getElementById(elemName).innerHTML;
+            }
+            function setElementHTML(elemName, data){
+                document.getElementById(elemName).innerHTML = data;
+            }
+        </script>
+    </body>
+</html>
