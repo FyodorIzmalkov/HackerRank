@@ -1,0 +1,33 @@
+body{
+    width:33%;
+}
+
+.result {
+    background-color: lightgray;
+    border: solid;
+    height: 48px;
+    font-size: 20px;
+}
+
+.numButtons{
+    background-color: lightgreen;
+    color: brown;
+}
+
+.utilButtons{
+    background-color: darkgreen;
+    color: white;
+}
+
+.actionButtons{
+    background-color: black;
+    color:red;
+}
+
+.buttonsContainer > .numButtons, .utilButtons, .actionButtons {
+    width: 25%;
+    height: 36px;
+    font-size: 18px;
+    margin: 0px;
+    float: left;
+}

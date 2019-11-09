@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Binary Calculator</title>
+        <link rel="stylesheet" href="binaryCalculator.css" type="text/css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form id="res" class="result"></form>
+        <div id="btns" class="buttonsContainer">
+            <button id="btn0" class="numButtons">0</button>
+            <button id="btn1" class="numButtons">1</button>
+            <button id="btnClr" class="utilButtons">C</button>
+            <button id="btnEql" class="utilButtons">=</button>
+            <button id="btnSum" class="actionButtons">+</button>
+            <button id="btnSub" class="actionButtons">-</button>
+            <button id="btnMul" class="actionButtons">*</button>
+            <button id="btnDiv" class="actionButtons">/</button>
+        </div>
+        <script>
+            function addSymbol(element){
+
+                var btn = element.target || element.srcElement;
+
+                var inner = document.getElementById(btn.id).innerHTML;
+                document.getElementById("res").innerHTML += inner;
+            }
+
+            document.getElementById("btn0").onclick = addSymbol;
+            document.getElementById("btn1").onclick = addSymbol;
+            document.getElementById("btnSum").onclick = addSymbol;
+            document.getElementById("btnSub").onclick = addSymbol;
+            document.getElementById("btnMul").onclick = addSymbol;
+            document.getElementById("btnDiv").onclick = addSymbol;
+
+            function calculateResult(element){
+                var btn = element.target || element.srcElement;
+
+                var inner = document.getElementById("res").innerHTML;
+                var arr = inner.match(/\d+/g);
+                var action = inner.match(/[+\-*\/]/);
+                var num1 = parseInt(arr[0], 2);
+                var num2 = parseInt(arr[1], 2);
+
+                var result = eval(num1 + action + num2);
+                result = result.toString(2);
+                
+                document.getElementById("res").innerHTML = result;
+            }
+
+            document.getElementById("btnEql").onclick = calculateResult;
+
+            function clearResult(){
+                document.getElementById("res").innerHTML = "";
+            }
+            document.getElementById("btnClr").onclick = clearResult;
+        </script>
+    </body>
+</html>
